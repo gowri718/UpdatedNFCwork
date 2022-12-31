@@ -34,7 +34,6 @@ import java.io.InputStreamReader;
 import java.nio.charset.StandardCharsets;
 import java.util.Calendar;
 import java.util.Objects;
-import android.os.Environment;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -64,12 +63,12 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         Objects.requireNonNull(getSupportActionBar()).setTitle("AUN");
         setContentView(R.layout.activity_main);
-        edit_message = (TextView) findViewById(R.id.edit_message);
-        rollno = (TextView) findViewById(R.id.rollno);
-        projectname = (TextView) findViewById(R.id.projectname);
-        branch = (TextView) findViewById(R.id.branch);
-        phone = (TextView) findViewById(R.id.phoneno);
-        projstatus = (Spinner) findViewById(R.id.nfc_contents_projstatus);
+        edit_message = findViewById(R.id.edit_message);
+        rollno = findViewById(R.id.rollno);
+        projectname = findViewById(R.id.projectname);
+        branch = findViewById(R.id.branch);
+        phone = findViewById(R.id.phoneno);
+        projstatus = findViewById(R.id.nfc_contents_projstatus);
 
         ActivateButton = findViewById(R.id.ActivateButton);
         ActivateButton2 = findViewById(R.id.ActivateButton2);

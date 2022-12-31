@@ -20,7 +20,7 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 import android.app.PendingIntent;
-import android.nfc.NfcAdapter;
+
 
 
 public class Student_Details extends AppCompatActivity {
@@ -44,12 +44,12 @@ public class Student_Details extends AppCompatActivity {
 
         Objects.requireNonNull(getSupportActionBar()).setTitle("Details of Student");
 
-        name = (TextView) findViewById(R.id.nfc_contents_name);
-        branch = (TextView) findViewById(R.id.nfc_contents_branch);
-        rollno = (TextView) findViewById(R.id.nfc_contents_rollno);
-        phoneno = (TextView) findViewById(R.id.nfc_contents_phoneno);
-        projectname = (TextView) findViewById(R.id.nfc_contents_projectname);
-        projstatus = (Spinner) findViewById(R.id.nfc_contents_projstatus);
+        name = findViewById(R.id.nfc_contents_name);
+        branch = findViewById(R.id.nfc_contents_branch);
+        rollno = findViewById(R.id.nfc_contents_rollno);
+        phoneno = findViewById(R.id.nfc_contents_phoneno);
+        projectname = findViewById(R.id.nfc_contents_projectname);
+        projstatus = findViewById(R.id.nfc_contents_projstatus);
 
         readfromIntent(getIntent());
         mAdapter = NfcAdapter.getDefaultAdapter(this);
@@ -99,14 +99,13 @@ public class Student_Details extends AppCompatActivity {
         String[] student_list = text.split(",");
         List<String> fixedLenghtList = Arrays.asList(student_list);
         ArrayList<String> listOfString;
-        ArrayList<Integer> listOfInt = null;
-        listOfString = new ArrayList<String>(fixedLenghtList);
+        listOfString = new ArrayList<>(fixedLenghtList);
         name.setText(listOfString.get(0));
         branch.setText(listOfString.get(2));
         rollno.setText(listOfString.get(1));
         phoneno.setText(listOfString.get(4));
         projectname.setText(listOfString.get(3));
-        projstatus.setDropDownVerticalOffset(listOfInt.get(0));
+        projstatus.setDropDownVerticalOffset(Integer.parseInt(listOfString.get(5)));
 
 
     }

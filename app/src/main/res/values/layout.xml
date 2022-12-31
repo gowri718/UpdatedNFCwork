@@ -2,7 +2,7 @@
 <resources xmlns:android="http://schemas.android.com/apk/res/android" xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent" android:layout_height="match_parent" tools:context=".MainActivity" android:background="@drawable/stu">
     <string name="app_name">Default</string>
     <string-array name="dropdown_values">
-        <item>Developed</item>
+        <item>Developing</item>
         <item>Submitted</item>
     </string-array>
 

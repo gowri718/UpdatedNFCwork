@@ -19,11 +19,6 @@ import android.widget.Button;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
-
-import org.apache.poi.ss.usermodel.Row;
-import org.apache.poi.ss.usermodel.Sheet;
-import org.apache.poi.ss.usermodel.Workbook;
-import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -41,11 +36,6 @@ import java.util.Calendar;
 import java.util.List;
 import java.util.Objects;
 
-
-
-
-
-
 public class Attendance extends AppCompatActivity {
     public static final String Error_Detected = "No NFC tag detected";
     private static final int MY_PERMISSIONS_REQUEST_WRITE_EXTERNAL_STORAGE = 1;
@@ -53,16 +43,16 @@ public class Attendance extends AppCompatActivity {
     public class Student {
         private String name;
         private String rollNo;
-        private String blockName;
+        private String projectname;
         private String branch;
         private String phoneNo;
         private List<String> dates;
 
-        public Student(String name, String rollNo, String branch, String blockName, String phoneNo, List<String> dates) {
+        public Student(String name, String rollNo, String branch, String projectname, String phoneNo, List<String> dates) {
             this.name = name;
             this.rollNo = rollNo;
             this.branch = branch;
-            this.blockName = blockName;
+            this.projectname = projectname;
             this.phoneNo = phoneNo;
             this.dates = dates;
         }
@@ -83,12 +73,12 @@ public class Attendance extends AppCompatActivity {
             this.rollNo = rollNo;
         }
 
-        public String getBlockName() {
-            return blockName;
+        public String getprojectname() {
+            return projectname;
         }
 
-        public void setBlockName(String blockName) {
-            this.blockName = blockName;
+        public void setprojectname(String projectname) {
+            this.projectname = projectname;
         }
 
         public String getBranch() {
@@ -118,7 +108,7 @@ public class Attendance extends AppCompatActivity {
         public Student fromJson(JSONObject jsonObject) throws JSONException {
             String name = jsonObject.getString("name");
             String rollNo = jsonObject.getString("rollNo");
-            String blockName = jsonObject.getString("blockName");
+            String projectname = jsonObject.getString("projectname");
             String branch = jsonObject.getString("branch");
             String phoneNo = jsonObject.getString("phoneNo");
             JSONArray datesJsonArray = jsonObject.getJSONArray("dates");
@@ -127,7 +117,7 @@ public class Attendance extends AppCompatActivity {
                 dates.add(datesJsonArray.getString(i));
             }
 
-            return new Student(name, rollNo, blockName, branch, phoneNo, dates);
+            return new Student(name, rollNo, projectname, branch, phoneNo, dates);
         }
 
         public List<Student> fromJson(JSONArray jsonArray) throws JSONException {
@@ -142,7 +132,7 @@ public class Attendance extends AppCompatActivity {
             JSONObject jsonObject = new JSONObject();
             jsonObject.put("name", name);
             jsonObject.put("rollNo", rollNo);
-            jsonObject.put("blockName", blockName);
+            jsonObject.put("projectname", projectname);
             jsonObject.put("branch", branch);
             jsonObject.put("phoneNo", phoneNo);
             JSONArray datesJsonArray = new JSONArray(dates);
